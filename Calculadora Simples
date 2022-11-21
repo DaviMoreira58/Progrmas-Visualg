@@ -1,0 +1,56 @@
+Algoritmo "Calculadora"
+// Disciplina  : Programação 01
+// Descrição   : Programa para realizar calculos básicos
+// Autor(a)    : Davi Marcos Moreira
+// Data atual  : 30/08/2022
+Var
+n1, n2, n3 : real
+opcao, opcao2 : inteiro
+
+
+Inicio
+opcao2 <- 1
+enquanto opcao2 = 1 faca
+      escreval("========== CALCULADORA ==========")
+		escreval("QUAL OPERAÇÃO DESEJA REALIZAR?")
+		escreval("[1] MULTIPLICAÇÃO")
+		escreval("[2] DIVISAO")
+		escreval("[3] SOMA")
+		escreval("[4] SUBTRAÇÃO")
+		escreval("=================================")
+		leia(opcao)
+		escreva("Escolha o primeiro numero: ")
+		leia(n1)
+		escreva("Escolha o segundo numero: ")
+		leia(n2)
+  escolha (opcao)
+          caso 1
+               n3 <- n1*n2
+               escreva("Resultado da multiplicação: ")
+               escreval(n1, " x ", n2, " = ", n3)
+          caso 2
+               se n2 = 0 entao
+                  escreval("Não é possivel dividir por 0")
+               fimse
+               se  n2 <> 0 entao
+                   n3 <- n1/n2
+                  escreva("Resultado da divisão: ")
+                  escreval(n1, " / ", n2, " = ", n3)
+               fimse
+          caso 3
+               n3 <- n1+n2
+               escreva("Resultado da soma: ")
+               escreval(n1, " + ", n2, " = ", n3)
+          caso 4
+               n3 <- n1 - n2
+               escreva("Resultado da subtração: ")
+               escreval(n1, " - ",n2 ," = ", n3)
+          outrocaso
+                   escreval("Opcao invalida")
+  fimescolha
+  escreval("Deseja continuar?")
+  escreval("[1] SIM")
+  escreval("[2] NÃO")
+  leia(opcao2)
+fimenquanto
+Fimalgoritmo
