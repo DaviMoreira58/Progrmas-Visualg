@@ -1,0 +1,48 @@
+Algoritmo "MAIOR, MENOR E MÉDIA"
+// Disciplina   : Linguagem e Lógica de Programação I
+// Descrição   : Programa que calcula média, o maior valor e o menor
+// Autor(a)    : Davi Marcos Moreira
+// Data atual  : 15/09/2022
+Var
+notas: vetor[1..5] de real
+media, maior, menor: real
+i, continua:inteiro
+
+
+Inicio
+ repita
+       escreval("Insira 5 notas para fazer média,")
+       escreval("verificar a maior e a menor.")
+      para i de 1 ate 5 faca
+           escreval("Cadastre a", i, " nota:")
+           leia(notas[i])
+      fimpara
+      
+      maior := notas[1]
+      menor := notas[1]
+      
+      para i de 2 ate 5 faca
+      
+           se notas[i] > maior entao
+              maior := notas[i]
+           fimse
+           
+           se notas[i] < menor entao
+              menor := notas[i]
+           fimse
+           
+      fimpara
+      
+      media := (notas[1] + notas[2] + notas[3] + notas[4] + notas[5]) / 5
+      
+      escreval("")
+      escreval("A media das notas é: ", media)
+      escreval("A maior nota foi é: ", maior)
+      escreval("A menor nota foi é: ", menor)
+      escreval("Quer continuar? [0]Não [1]Sim")
+      leia(continua)
+      limpatela
+      
+ ate(continua = 0)
+
+Fimalgoritmo
