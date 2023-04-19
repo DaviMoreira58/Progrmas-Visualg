@@ -1,0 +1,37 @@
+Algoritmo Meteoritos
+
+Var
+X1, Y1, X2, Y2, X, Y, N, Teste: Inteiro
+
+Inicio
+Teste <- 1
+
+Enquanto Verdadeiro Faça
+    Escreva("Teste ", Teste)
+    Leia(X1, Y1, X2, Y2)
+
+    Se X1 = 0 E Y1 = 0 E X2 = 0 E Y2 = 0 Então
+        // Condição de saída do loop
+        Pare
+    FimSe
+
+    Leia(N)
+
+    // Contador de meteoritos dentro da fazenda
+    Contador <- 0
+
+    Para i <- 1 Até N Faça
+        Leia(X, Y)
+        Se (X >= X1) E (X <= X2) E (Y >= Y2) E (Y <= Y1) Então
+            // Verifica se o meteorito está dentro da fazenda
+            Contador <- Contador + 1
+        FimSe
+    FimPara
+
+    Escreva(Contador)
+    Escreva()
+
+    Teste <- Teste + 1
+FimEnquanto
+
+FimAlgoritmo
