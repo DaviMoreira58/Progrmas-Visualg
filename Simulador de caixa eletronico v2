@@ -1,0 +1,79 @@
+Algoritmo "Contagem de Cedulas"
+Var
+   valorSaque, valorAtual, cedulas: Inteiro
+
+Inicio
+   Repita
+      Escreva("Digite o valor do saque (min. R$10,00 e máx. R$850,00): ")
+      Leia(valorSaque)
+
+      Se valorSaque < 10 Ou valorSaque > 850 Então
+         Escreva("Valor de saque inválido. Tente novamente.")
+      Senão
+         valorAtual <- valorSaque
+         cedulas <- 0
+
+         Enquanto valorAtual >= 200 Faça
+            valorAtual <- valorAtual - 200
+            cedulas <- cedulas + 1
+         FimEnquanto
+
+         Enquanto valorAtual >= 100 Faça
+            valorAtual <- valorAtual - 100
+            cedulas <- cedulas + 1
+         FimEnquanto
+
+         Enquanto valorAtual >= 50 Faça
+            valorAtual <- valorAtual - 50
+            cedulas <- cedulas + 1
+         FimEnquanto
+
+         Enquanto valorAtual >= 20 Faça
+            valorAtual <- valorAtual - 20
+            cedulas <- cedulas + 1
+         FimEnquanto
+
+         Enquanto valorAtual >= 10 Faça
+            valorAtual <- valorAtual - 10
+            cedulas <- cedulas + 1
+         FimEnquanto
+
+         Enquanto valorAtual >= 5 Faça
+            valorAtual <- valorAtual - 5
+            cedulas <- cedulas + 1
+         FimEnquanto
+
+         Enquanto valorAtual >= 2 Faça
+            valorAtual <- valorAtual - 2
+            cedulas <- cedulas + 1
+         FimEnquanto
+
+         Escreva("Quantidade de cédulas por valor de face:")
+         Escreva("R$200,00: ", cedulas)
+         cedulas <- 0
+
+         Escreva("R$100,00: ", cedulas)
+         cedulas <- 0
+
+         Escreva("R$50,00: ", cedulas)
+         cedulas <- 0
+
+         Escreva("R$20,00: ", cedulas)
+         cedulas <- 0
+
+         Escreva("R$10,00: ", cedulas)
+         cedulas <- 0
+
+         Escreva("R$5,00: ", cedulas)
+         cedulas <- 0
+
+         Escreva("R$2,00: ", cedulas)
+         cedulas <- 0
+
+         Escreva("Valor total do saque: R$", valorSaque)
+      FimSe
+
+      Escreva("Deseja fazer outro saque? (S/N): ")
+      Leia(opcao)
+   Até Que opcao = "N" Ou opcao = "n"
+Fim
