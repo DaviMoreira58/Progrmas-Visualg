@@ -1,0 +1,28 @@
+Algoritmo "Calculo_Digito_Verificador_M11"
+Var
+   numero, dv, soma, multiplicador, resto: Inteiro
+   
+Inicio
+   escreva("Digite o número para o cálculo do dígito verificador (apenas números): ")
+   leia(numero)
+   
+   dv <- 0
+   multiplicador <- 2
+   soma <- 0
+   
+   Enquanto numero > 0 Faça
+      resto <- numero % 10
+      soma <- soma + (resto * multiplicador)
+      multiplicador <- multiplicador + 1
+      numero <- numero / 10
+   FimEnquanto
+   
+   dv <- soma % 11
+   
+   Se dv < 10 Então
+      escreva("O dígito verificador é: ", dv)
+   Senão
+      escreva("O dígito verificador é: X")
+   FimSe
+   
+FimAlgoritmo
