@@ -1,0 +1,70 @@
+algoritmo "busca_sequencial"
+// Função : Encontra um valor em um vetor usando Busca Sequencial.
+// Força a entrada em modo DOS
+dos
+// Seção de Declarações
+var
+   valor : vetor[1..10] de inteiro
+   vpesq, comeco, final, conta_loop : inteiro
+   achou : logico
+
+// carrega um vetor com 50 valores aleatórios entre 0 e 200
+
+procedimento carregavetor
+var j : inteiro
+inicio
+
+para j de 1 ate 10 faca
+   valor[j] <- randi(200)
+fimpara
+
+fimprocedimento
+
+// mostra o vetor carregado
+
+procedimento exibevetor
+var j : inteiro
+inicio
+para j de 1 ate 10 faca
+   escreval(j:5,valor[j]:5)
+fimpara
+fimprocedimento
+
+inicio
+carregavetor
+exibevetor
+repita
+   escreval ()
+   escreva( "Informe o valor para busca (ESC ou menor que 0 termina) : ")
+   leia( vpesq)
+   se vpesq >= 0 entao
+      conta_loop := 0
+      comeco := 1
+      final := 10
+      achou := falso
+      enquanto nao(achou) faca
+//        conta_loop := conta_loop+1
+//        escreval ("Estou na posição ", comeco, " do vetor")
+//        escreval ("Número de buscas: ", comeco)
+        se comeco > final entao
+           achou := verdadeiro
+           escreval ()
+           escreval ( "Valor informado: ", vpesq:2 )
+           escreval ( "Não encontrado no vetor")
+           escreval ("Número de buscas: ", comeco)
+        senao
+             se (vpesq = valor[comeco]) entao
+                 achou := verdadeiro
+                 escreval ()
+                 escreval ( "Valor informado: ", vpesq:2)
+                 escreval ( "Encontrado na posição: ", comeco:2)
+                 escreval ("Número de buscas: ", comeco)
+             senao
+                 comeco := comeco+1
+             fimse
+        fimse
+      fimenquanto
+   fimse
+ate vpesq < 0
+
+fimalgoritmo
