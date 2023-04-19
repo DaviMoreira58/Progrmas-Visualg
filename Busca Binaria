@@ -1,0 +1,99 @@
+algoritmo "busca_binaria"
+// Disciplina   : [Linguagem e Lógica de Programação] 
+// Função : Encontra um valor em um vetor usando Busca Binaria.
+// Força a entrada em modo DOS
+dos
+// Seção de Declarações
+var
+   valor : vetor[1..10] de inteiro
+   vpesq, comeco, meio, final, conta_acesso : inteiro
+   achou : logico
+   
+// Troca elementos do vetor de posição
+procedimento troca( var a, b : inteiro )
+var t : inteiro
+inicio
+    t <- a
+    a <- b
+    b <- t
+fimprocedimento
+
+// Ordena o vetor, usando Bubblesort e reaproveitando as variáveis
+procedimento ordena
+var a,b : inteiro
+inicio
+para a de 1 ate 10 faca
+   para b de 1 ate 9 faca
+      se valor[b] > valor[b+1] entao
+         troca(valor[b],valor[b+1])
+      fimse
+   fimpara
+fimpara
+fimprocedimento
+
+// Carrega o vetor com 10 valores inteiros aleatórios, entre 0 e 200
+procedimento carregavetor
+var j : inteiro
+inicio
+para j de 1 ate 10 faca
+   valor[j] <- randi(200)
+fimpara
+fimprocedimento
+
+// Exibe o vetor carregado
+procedimento exibevetor
+var j : inteiro
+inicio
+para j de 1 ate 10 faca
+   escreval(j:5,valor[j]:5)
+fimpara
+fimprocedimento
+
+inicio
+carregavetor
+exibevetor
+escreval ("Vetor carregado")
+ordena
+exibevetor
+escreval ("Vetor ordenado")
+
+repita
+   conta_acesso := 0
+   escreval ()
+   escreva( "Valor para busca (ESC ou menor que 0 termina) : ")
+   leia( vpesq)
+   se vpesq >= 0 entao
+      comeco <- 1
+      final <- 10
+      achou <- falso
+      enquanto nao(achou) faca
+        meio <- (comeco+final) div 2
+        se comeco > final entao
+           conta_acesso := conta_acesso + 1
+           achou <- verdadeiro
+           escreval ()
+           escreval ( "Valor informado: ", vpesq:2 )
+           escreval ( "Não encontrado no vetor")
+           escreval ( "Quatindade de acessos: ", conta_acesso)
+        senao
+           se (vpesq = valor[meio]) entao
+              conta_acesso := conta_acesso + 1
+              achou <- verdadeiro
+              escreval ()
+              escreval ( "Valor informado: ", vpesq:2)
+              escreval ( "Encontrado na posição: ", meio:2)
+              escreval ( "Quantidade de acessos: ", conta_acesso)
+           senao
+              conta_acesso := conta_acesso + 1
+              se vpesq > valor[meio] entao
+                 comeco <- meio+1
+              senao
+                 final <- meio-1
+              fimse
+           fimse
+        fimse
+      fimenquanto
+   fimse
+ate vpesq < 0
+
+fimalgoritmo
