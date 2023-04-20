@@ -1,0 +1,79 @@
+programa CALCULADORA V2
+var
+	R, A, B: real
+	{Trecho de sub-rotinas de entrada e saída}
+	
+	procedimento ENTRADA
+		inicio
+			escreva "Entre o lo . valor: "leia A
+			escreva "Entre o 2o. valor: "leia B
+		fim
+		
+	procedimento SAIDA
+		inicio
+			escreva "O resultado da operação equivale a: ", R
+		fim
+		
+	{Trecho das sub-rotinas de cálculos}
+	
+	procedimento ROTSOMA
+	inicio
+		escreva "Rotina de Adição"
+		ENTRADA
+		R-A+B
+		SAÍDA
+	fim
+	
+	procedimento ROTSUBTRAÇÃO
+	inicio
+		escreva "Rotina de Subtração"
+		ENTRADA
+		R - A - B
+		SAÍDA
+	fim
+	
+	procedimento ROTMULTIPLICAÇÃO
+	inicio
+		escreva "Rotina de Multiplicação"
+		ENTRADA
+		R - A * B
+		SAÍDA
+	fim
+	
+	procedimento ROTDIVISÃO
+	inicio
+		escreva "Rotina de Divisão"
+	ENTRADA
+		se (B = O) então
+			escreva "O resultado da operação equivale a: ERRO"
+		senão
+			R - A / B
+			SAÍDA
+	fim_se 
+fim
+
+
+var
+	OPÇÃO: inteiro
+ 
+inicio : 
+	OPÇÃO <- O
+	enquanto (OPÇÃO <> 5) faça
+		escreva " [1 ] - Adição"
+		escreva " [2 ] - Subtração"
+		escreva " [3 ] - Multiplicação"
+		escreva " [4 ] - Divisão"
+		escreva " [5 ] - Fim de Programa"
+		escreva "Escolha uma opção: "leia OPÇÃO
+		se (OPÇÃO<> 5) então
+			caso OPÇÃO
+				seja 1 faça ROTSOMA
+				seja 2 faça ROTSUBTRAÇÃO
+				seja 3 faça ROTMULTIPLICAÇÃO
+				seja 4 faça ROTDIVISÃO
+			senão
+				escreva "Opção inválida - Tente novamente "
+			fim_caso 
+		fim_se
+	fim_enquanto 
+fim
